@@ -3,9 +3,9 @@ import Db from './db.class.js';
 
 class Dao {
 
-  #connectionOptions = {};
   #host = '';
   #port = '';
+  #connectionOptions = {};
 
   dbs = {};
 
@@ -29,11 +29,11 @@ class Dao {
     const db = new Db({ name });
     this.dbs[name] = db;
     this.#initConnection(db);
-    // await this.#initModels(db, models);
+    await this.#initModels(db, models);
   }
 
   #initConnection(db) {
-    db.connection =  mongoose.createConnection(
+    db.connection = mongoose.createConnection(
       `mongodb://${this.#host}:${this.#port}/${db.name}`,
       this.#connectionOptions
     );
@@ -44,6 +44,14 @@ class Dao {
       const { name, schema } = models[i];
       db.models[name] = db.connection.model(name, schema);
     }
+  }
+
+  getDb(dbName) {
+    return this.dbs[dbName];
+  }
+
+  getModel(dbName, modelName) {
+    return this.dbs[dbName].models[modelName];
   }
 
 }

@@ -10,6 +10,10 @@ class Db {
     this.name = name;
   }
 
+  getModel(modelName) {
+    return this.models[modelName];
+  }
+
 }
 
 export default Db;
