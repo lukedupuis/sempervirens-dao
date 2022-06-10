@@ -1,0 +1,33 @@
+{
+  "name": "@sempervirens/dao",
+  "version": "0.0.1",
+  "description": "A connection manager for MongoDB using Mongoose",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukedupuis/sempervirens-dao.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Mongoose"
+  ],
+  "author": "Luke Dupuis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukedupuis/sempervirens-dao/issues"
+  },
+  "homepage": "https://github.com/lukedupuis/sempervirens-dao#readme",
+  "dependencies": {
+    "mongoose": "^6.3.6"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
