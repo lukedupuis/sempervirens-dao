@@ -1,5 +1,3 @@
 import dao from './src/dao.class.js';
 
-export {
-  dao
-}
+export default dao;

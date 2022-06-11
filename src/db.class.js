@@ -4,9 +4,7 @@ class Db {
   connection = null;
   models = {};
 
-  constructor({
-    name = ''
-  }) {
+  constructor(name = '') {
     this.name = name;
   }
 

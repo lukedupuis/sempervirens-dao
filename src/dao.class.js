@@ -16,30 +16,35 @@ class Dao {
     port = '27017',
     connectionOptions = {},
   }) {
-    this.#connectionOptions = connectionOptions;
     this.#host = host;
     this.#port = port;
+    this.#connectionOptions = connectionOptions;
   }
 
-  async initDb({
+  initDb({
     name = '',
-    models = {}
+    models = [],
+    host = '',
+    port = '',
+    connectionOptions = null,
   }) {
     if (this.dbs?.[name]?.connection) return;
-    const db = new Db({ name });
+    const db = new Db(name);
+    this.#initConnection({ db, host, port, connectionOptions });
+    this.#initModels({ db, models });
     this.dbs[name] = db;
-    this.#initConnection(db);
-    this.#initModels(db, models);
   }
 
-  #initConnection(db) {
+  #initConnection({ db, host, port, connectionOptions }) {
+    if ((!host && !this.#host) || (!port && !this.#port)) return;
     db.connection = mongoose.createConnection(
-      `mongodb://${this.#host}:${this.#port}/${db.name}`,
-      this.#connectionOptions
+      `mongodb://${host || this.#host}:${port || this.#port}/${db.name}`,
+      connectionOptions || this.#connectionOptions
     );
   }
 
-  #initModels(db, models) {
+  #initModels({ db, models }) {
+    if (models.length == 0) return;
     for (let i in models) {
       const { name, schema } = models[i];
       db.models[name] = db.connection.model(name, schema);
