@@ -31,10 +31,10 @@ export default testSchema;
 
 1. Import `@sempervirens/dao` into the app's entrypoint.
 2. Import the schemas.
-3. Call dao.config. connectionOptions are the [Mongoose connection options](https://mongoosejs.com/docs/connections.html#options).
-4. Call dao.initDb for each database.
+3. Call `dao.config`. `connectionOptions` are the [Mongoose connection options](https://mongoosejs.com/docs/connections.html#options).
+4. Call `dao.initDb` for each database.
 
-*Note 1: Only call `dao.config` once in one place, and only call` dao.initDb` in one place, for each database.*
+*Note 1: Only call `dao.config` once in one place, and only call` dao.initDb` in one place, for each database.*<br>
 *Note 2: Multi-host connections are possible by passing `host`, `port`, and `connectionOptions` into `initDb` instead of `config`.*
 
 /app/src/index.js
@@ -76,7 +76,7 @@ dao.initDb({
 ### Access Models
 
 1. Import `@sempervirens/dao` where access to models is needed.
-2. Call methods on `dao` to access models
+2. Call methods on `dao` and `dao` databases to access models
 3. Call [Mongoose methods](https://mongoosejs.com/docs/models.html) on models.
 
 /app/src/example.js
@@ -110,7 +110,7 @@ import dao from '@sempervirens/dao';
 | `getDb` | Function | `dbName = ''` | Gets a database from the `dao.dbs` map. Equivalent to `dao.dbs.dbName`.
 | `getModel` | Function | `dbName = '', modelName = ''` | Gets a model from the `dao.dbs.dbName.models` map. Equivalent to `dao.dbs.dbName.models.modelName`.
 
-### Db (class)
+#### Db (class)
 
 | Prop  | Type | Params | Description
 |-------|------|--------|------------
