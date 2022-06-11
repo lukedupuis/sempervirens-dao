@@ -1,7 +1,8 @@
 import { expect } from 'chai';
+import mongoose from 'mongoose';
 
-import dao from '../dao.class.js';
-import Db from '../db.class.js';
+import dao from '../src/dao.class.js';
+import Db from '../src/db.class.js';
 
 const testSchema1 = new mongoose.Schema({
   prop1: { type: String },
@@ -22,8 +23,8 @@ describe('1. "dao" instance', () => {
     }
   });
 
-  before(async () => {
-    await dao.initDb({
+  before(() => {
+    dao.initDb({
       name: 'testdb1',
       models: [
         { name: 'Test1', schema: testSchema1 }

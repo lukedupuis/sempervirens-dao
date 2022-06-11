@@ -29,7 +29,7 @@ class Dao {
     const db = new Db({ name });
     this.dbs[name] = db;
     this.#initConnection(db);
-    await this.#initModels(db, models);
+    this.#initModels(db, models);
   }
 
   #initConnection(db) {
@@ -39,7 +39,7 @@ class Dao {
     );
   }
 
-  async #initModels(db, models) {
+  #initModels(db, models) {
     for (let i in models) {
       const { name, schema } = models[i];
       db.models[name] = db.connection.model(name, schema);
