@@ -34,7 +34,7 @@ export default testSchema;
 3. Call `dao.config`. `connectionOptions` are the [Mongoose connection options](https://mongoosejs.com/docs/connections.html#options).
 4. Call `dao.initDb` for each database.
 
-*Note 1: Only call `dao.config` once in one place, and only call` dao.initDb` in one place, for each database.*<br>
+*Note 1: Only call `dao.config` once in one place, and only call `dao.initDb` in one place, for each database.*<br>
 *Note 2: Multi-host connections are possible by passing `host`, `port`, and `connectionOptions` into `initDb` instead of `config`.*
 
 /app/src/index.js
@@ -54,7 +54,7 @@ dao.config({
 
 // Call for each DB
 dao.initDb({
-  name: 'testdb',
+  name: 'testdb1',
   models: [
     { name: 'Test1', schema: testSchema }
   ]
@@ -65,9 +65,9 @@ dao.initDb({
   host: 'anotherhost',
   port: 'anotherport',
   connectionOptions: {},
-  name: 'testdb',
+  name: 'testdb2',
   models: [
-    { name: 'Test1', schema: testSchema }
+    { name: 'Test2', schema: testSchema }
   ]
 });
 
