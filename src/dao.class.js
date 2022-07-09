@@ -45,7 +45,7 @@ class Dao {
 
   #initModels({ db, models }) {
     if (models.length == 0) return;
-    for (let i in models) {
+    for (const i in models) {
       const { name, schema } = models[i];
       db.models[name] = db.connection.model(name, schema);
     }

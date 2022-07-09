@@ -7,9 +7,6 @@ import Db from '../src/db.class.js';
 const testSchema = new mongoose.Schema({
   prop1: { type: String },
   prop2: { type: String }
-}, {
-  timestamps: true,
-  versionKey: false
 });
 
 describe('1. dao instance', () => {
