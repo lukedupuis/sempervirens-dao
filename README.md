@@ -2,7 +2,7 @@
 
 A connection manager for MongoDB using Mongoose, it provides a simplified interface for creating connections to one or more MongoDB databases and accessing models.
 
-![Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+![Tests - Node 16.x/MongoDB 4.4](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 
 ## Installation
 
