@@ -3,8 +3,6 @@ name: Tests
 on:
   push:
     branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
 
 jobs:
   build:
@@ -30,5 +28,4 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - run: npm ci
-      # - run: npm run build --if-present
       - run: npm test

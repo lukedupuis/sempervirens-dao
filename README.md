@@ -2,7 +2,7 @@
 
 A connection manager for MongoDB using Mongoose, it provides a simplified interface for creating connections to one or more MongoDB databases and accessing models.
 
-![Tests badge](https://github.com/lukedupuis/sempervirens-dao/actions/workflows/main.yml/badge.svg?event=push) ![Version badge](https://img.shields.io/static/v1?label=Node.js&labelColor=30363c&message=16.x&color=blue) ![Version badge](https://img.shields.io/static/v1?label=MongoDB&labelColor=30363c&message=4.4&color=blue)
+![Tests badge](https://github.com/lukedupuis/sempervirens-dao/actions/workflows/main.yml/badge.svg?event=push) ![Version badge](https://img.shields.io/static/v1?label=Node&labelColor=30363c&message=16.x&color=blue) ![Version badge](https://img.shields.io/static/v1?label=MongoDB&labelColor=30363c&message=4.4&color=blue)
 
 ## Installation
 

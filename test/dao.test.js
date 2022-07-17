@@ -9,7 +9,7 @@ const testSchema = new mongoose.Schema({
   prop2: { type: String }
 });
 
-describe('1. dao instance', () => {
+describe('1. dao', () => {
 
   describe('1.1. dao.initDb with a custom config (multiple hosts)', () => {
     before(() => {
