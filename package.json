@@ -1,6 +1,6 @@
 {
   "name": "@sempervirens/dao",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A connection manager for MongoDB using Mongoose",
   "main": "index.js",
   "type": "module",
