@@ -11,7 +11,7 @@ const testSchema = new mongoose.Schema({
 
 describe('1. dao', () => {
 
-  describe('1.1. dao.initDb with a custom config (multiple hosts)', () => {
+  describe('1.1. When calling "initDb" with a custom config (multiple hosts)', () => {
     before(() => {
       dao.initDb({
         name: 'testdb1',
@@ -34,7 +34,7 @@ describe('1. dao', () => {
     });
   });
 
-  describe('1.2. dao.initDb with a default config (single host)', () => {
+  describe('1.2. When calling "initDb" with a default config (single host)', () => {
     before(() => {
       dao.config({
         host: 'localhost',
@@ -59,24 +59,29 @@ describe('1. dao', () => {
     });
   });
 
-  describe('1.3. dao.getDb', () => {
+  describe('1.3. When calling "getDb"', () => {
     it('1.3.1. Should return a database', () => {
       expect(dao.getDb('testdb1')).to.be.an.instanceof(Db);
     });
   });
 
-  describe('1.4. dao.getModel', () => {
+  describe('1.4. When calling "getModel"', () => {
     it('1.4.1. Should return a model', () => {
       expect(dao.getModel('testdb1', 'Test1')).to.exist;
     });
   });
 
-  describe('1.5. dao.dbs.dbName.getModel', () => {
+  describe('1.5. When calling "dao.dbs.dbName.getModel"', () => {
     it('1.5.1. Should return a model', () => {
       expect(dao.dbs.testdb1.getModel('Test1')).to.exist;
     });
   });
 
-  after(() => process.exit());
+  after(async () => {
+    await new Promise(resolve => setTimeout(() => resolve(), 500));
+    await dao.getDb('testdb1').connection.dropDatabase();
+    await dao.getDb('testdb2').connection.dropDatabase();
+    process.exit();
+  });
 
 });

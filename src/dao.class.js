@@ -15,7 +15,7 @@ class Dao {
     host = 'localhost',
     port = '27017',
     connectionOptions = {},
-  }) {
+  } = {}) {
     this.#host = host;
     this.#port = port;
     this.#connectionOptions = connectionOptions;
